@@ -36,7 +36,7 @@ function Formulario() {
             <textarea
               className="p-2 border-2 border-gray-500 rounded-sm"
               name="msg"
-              cols="30"
+              cols="50"
               rows="5"
               placeholder="Mensagem: *"
             ></textarea>
