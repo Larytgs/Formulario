@@ -9,7 +9,7 @@ function Formulario() {
           </h1>
           <p className="w-[250px]">
             Caso tenha ficado com qualquer dúvida basta nos mandar uma mensagem
-            e entraremos em contato em menos de 24h.
+            e entraremos em contato assim que possível.
           </p>
         </div>
 
