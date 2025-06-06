@@ -1,13 +1,13 @@
 function Formulario() {
   return (
     <section>
-      <div className="flex mt-20 gap-10 justify-evenly">
-        <div className="text-center">
-          <h1 className="text-[1em] sm:text-[1.2em] text-left mt-32 mb-5 font-bold">
+      <div className="block sm:flex lg:mt-20 gap-10 justify-evenly">
+        <div className="block text-center">
+          <h1 className="text-[1em] sm:text-[1.2em] sm:text-left sm:mt-32 mb-5 font-bold">
             FICOU COM DÚVIDA? <br />
             NOS MANDE UMA MENSAGEM!
           </h1>
-          <p className="w-[250px]">
+          <p className="m-5 sm:w-[250px]">
             Caso tenha ficado com qualquer dúvida basta nos mandar uma mensagem
             e entraremos em contato assim que possível.
           </p>
