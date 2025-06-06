@@ -1,18 +1,19 @@
 function Formulario() {
   return (
-    <section>
+    <section className="flex">
+      <h1 className="text-[3em] ">Titulo</h1>
       <div>
-        <h1 className="size-">Titulo</h1>
-        <p>
+        <p className="w-[300px] m-[10%]">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
           illo fugit iusto commodi, soluta veniam eligendi ducimus delectus,
           dolor enim animi unde vero ut, neque id repellendus error? Soluta,
           provident!
         </p>
       </div>
-      <div>
+
+      <div className="flex">
         <div>
-          <h1>Formulário</h1>
+          <h1 className="text-[2em]">Formulário</h1>
           <input type="text" value="name" placeholder="Nome completo: *" />
           <input type="email" value="email" placeholder="Email: *" />
           <input type="number" valur="number" placeholder="Telefone: *" />
