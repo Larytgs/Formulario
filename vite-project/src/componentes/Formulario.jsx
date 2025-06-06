@@ -1,19 +1,19 @@
 function Formulario() {
   return (
     <section>
-      <div className="block sm:flex lg:mt-20 gap-10 justify-evenly">
-        <div className="block text-center">
-          <h1 className="text-[1em] sm:text-[1.2em] sm:text-left sm:mt-32 mb-5 font-bold">
+      <div className="block sm:flex lg:mt-20 lg:gap-8 justify-evenly">
+        <div className="block text-center -ml-7">
+          <h1 className="text-[1em] mb-5 font-bold sm:text-[1.2em] sm:text-left sm:mt-32 sm:ml-6 ">
             FICOU COM DÚVIDA? <br />
             NOS MANDE UMA MENSAGEM!
           </h1>
-          <p className="m-5 sm:w-[250px]">
+          <p className="m-5 sm:w-[300px]">
             Caso tenha ficado com qualquer dúvida basta nos mandar uma mensagem
             e entraremos em contato assim que possível.
           </p>
         </div>
 
-        <form className="border-2 border-gray-800 bg-orange-50 rounded-xl p-5 ">
+        <form className="border-2 border-gray-800 bg-orange-50 rounded-xl p-5 mr-5">
           <div className="flex flex-col gap-2">
             <input
               className="p-2  border-2 border-gray-500 rounded-sm"
