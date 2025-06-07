@@ -26,8 +26,8 @@ function Formulario() {
         className="block md:flex lg:gap-8 md:justify-evenly"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="block text-center lg:-ml-7 lg:mt-8">
-          <h1 className="text-[1em] mb-5 font-bold md:text-[1.2em] md:text-left md:mt-32 md:ml-8 ">
+        <div className="block text-center  md:mr-7 lg:mt-8">
+          <h1 className="text-[1.2em] mb-5 font-bold md:text-left md:mt-32 md:ml-2 ">
             FICOU COM DÚVIDA? <br />
             NOS MANDE UMA MENSAGEM!
           </h1>
@@ -37,7 +37,7 @@ function Formulario() {
           </p>
         </div>
 
-        <form className="border-2 border-gray-800 bg-[#bcc7f0] lg:mt-4 rounded-xl p-4 m-0 sm:mr-5">
+        <form className="border-2 border-gray-800 bg-[#bcc7f0] lg:mt-4 rounded-xl p-4 m-0 lg:mr-5">
           <div className="flex flex-col gap-4">
             {/* nome */}
             <input
