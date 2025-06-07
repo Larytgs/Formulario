@@ -9,13 +9,13 @@ function Formulario() {
 
   return (
     <section>
-      <div className="block sm:flex lg:mt-20 lg:gap-8 justify-evenly">
+      <div className="block md:flex md:mt-10 lg:mt-20 lg:gap-8 justify-evenly">
         <div className="block text-center -ml-7">
-          <h1 className="text-[1em] mb-5 font-bold sm:text-[1.2em] sm:text-left sm:mt-32 sm:ml-6 ">
+          <h1 className="text-[1em] mb-5 font-bold md:text-[1.2em] md:text-left md:mt-32 md:ml-6 ">
             FICOU COM DÚVIDA? <br />
             NOS MANDE UMA MENSAGEM!
           </h1>
-          <p className="m-5 sm:w-[300px]">
+          <p className="m-5 md:w-[300px]">
             Caso tenha ficado com qualquer dúvida basta nos mandar uma mensagem
             e entraremos em contato assim que possível.
           </p>
@@ -44,7 +44,7 @@ function Formulario() {
             <textarea
               className="p-2 border-2 border-gray-500 rounded-sm"
               name="msg"
-              cols="50"
+              cols="40"
               rows="5"
               placeholder="Mensagem: *"
               {...register("msg")}
