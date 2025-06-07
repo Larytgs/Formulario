@@ -6,7 +6,7 @@ function Formulario() {
     register,
     handleSubmit,
     formState: { errors },
-    watch, //funcionalidade que permite monitorar as mudanças em um ou mais campos de um formulário, exemplo validação de senha
+    //watch, //funcionalidade que permite monitorar as mudanças em um ou mais campos de um formulário, exemplo validação de senha
   } = useForm({
     mode: "onSubmit", //a validação aconteça apenas quando o usuário clicar em Enviar
   });
@@ -18,15 +18,15 @@ function Formulario() {
     alert(JSON.stringify(data)); // Exibe os dados do formulário no console
   };
 
-  const watchPassword = watch("password");
+  // const watchPassword = watch("password");
 
   return (
     <section>
       <div
-        className="block md:flex  lg:gap-8 justify-evenly"
+        className="block md:flex lg:gap-8 justify-evenly"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="block text-center -ml-7">
+        <div className="block text-center -ml-7 lg:mt-8">
           <h1 className="text-[1em] mb-5 font-bold md:text-[1.2em] md:text-left md:mt-32 md:ml-6 ">
             FICOU COM DÚVIDA? <br />
             NOS MANDE UMA MENSAGEM!
@@ -37,11 +37,11 @@ function Formulario() {
           </p>
         </div>
 
-        <form className="border-2 border-gray-800 bg-orange-50 rounded-xl p-5 mr-5">
-          <div className="flex flex-col gap-5">
+        <form className="border-2 border-gray-800 bg-orange-50 lg:mt-7 rounded-xl p-4 mr-5">
+          <div className="flex flex-col gap-4">
             {/* nome */}
             <input
-              className={`p-2 border-2 rounded-sm ${
+              className={`p-1 border-2 rounded-sm ${
                 errors?.name
                   ? "border-red-500 focus:border-red-500 focus:outline-none"
                   : "border-gray-500"
@@ -58,7 +58,7 @@ function Formulario() {
 
             {/* email */}
             <input
-              className={`p-2 border-2 rounded-sm ${
+              className={`p-1 border-2 rounded-sm ${
                 errors?.email
                   ? "border-red-500 focus:border-red-500 focus:outline-none"
                   : "border-gray-500"
@@ -83,7 +83,7 @@ function Formulario() {
 
             {/* telefone */}
             <input
-              className={`p-2 border-2 rounded-sm ${
+              className={`p-1 border-2 rounded-sm ${
                 errors?.tel
                   ? "border-red-500 focus:border-red-500 focus:outline-none"
                   : "border-gray-500"
@@ -99,8 +99,8 @@ function Formulario() {
             )}
 
             {/* senha */}
-            <input
-              className={`p-2 border-2 rounded-sm ${
+            {/* <input
+              className={`p-1 border-2 rounded-sm ${
                 errors?.password
                   ? "border-red-500 focus:border-red-500 focus:outline-none"
                   : "border-gray-500"
@@ -119,11 +119,11 @@ function Formulario() {
               <p className="text-red-500 -mt-4 -mb-3 text-[0.7em] text-left">
                 Senha é Obrigatório.
               </p>
-            )}
+            )} */}
 
             {/* Validação de senha */}
-            <input
-              className={`p-2 border-2 rounded-sm ${
+            {/* <input
+              className={`p-1 border-2 rounded-sm ${
                 errors?.passwordConfirmation
                   ? "border-red-500 focus:border-red-500 focus:outline-none"
                   : "border-gray-500"
@@ -138,30 +138,12 @@ function Formulario() {
                   value === watchPassword || "As senhas não conferem.",
               })}
             />
+
             {errors?.passwordConfirmation && (
               <p className="text-red-500 -mt-4 -mb-3 text-[0.7em] text-left">
                 {errors.passwordConfirmation.type === "required"
                   ? "Senha é obrigatória."
-                  : errors.passwordConfirmation.type === "minLength"
-                  ? "A senha deve ter no mínimo 7 caracteres."
-                  : "As senhas não conferem."}
-              </p>
-            )}
-
-            {/* {errors?.passwordConfirmation?.type === "required" && (
-              <p className="text-red-500 -mt-4 -mb-3 text-[0.7em] text-left">
-                Senha é Obrigatório.
-              </p>
-            )}
-            {errors?.passwordConfirmation && (
-              <p className="text-red-500 -mt-4 -mb-3 text-[0.7em] text-left">
-                {errors.passwordConfirmation.message ||
-                  "As senhas não conferem."}
-              </p>
-            )}
-            {errors?.passwordConfirmation?.type === "minLength" && (
-              <p className="text-red-500 -mt-4 -mb-3 text-[0.7em] text-left">
-                A senha deve contem no minimo 7 caracteres.
+                  : errors.passwordConfirmation.message}
               </p>
             )} */}
 
@@ -174,7 +156,7 @@ function Formulario() {
                     return value !== "0";
                   },
                 })}
-                className={`ml-3 p-2 border-2 rounded-sm ${
+                className={`ml-2 p-1 border-2 rounded-sm ${
                   errors?.profession
                     ? "border-red-500 focus:border-red-500 focus:outline-none"
                     : "border-gray-500"
@@ -203,7 +185,7 @@ function Formulario() {
 
             {/* msg */}
             <textarea
-              className={`md:w-[500px] lg:w-[600px] p-2 border-2 rounded-sm ${
+              className={`md:w-[400px] lg:w-[500px] p-1 border-2 rounded-sm ${
                 errors?.msg
                   ? "border-red-500 focus:border-red-500 focus:outline-none"
                   : "border-gray-500"
@@ -251,7 +233,7 @@ function Formulario() {
             <p className="mb-5 text-left">* campos obrigatórios</p>
           </div>
 
-          <div className="cursor-pointer px-5 py-1 mt-3 rounded-xl bg-green-500">
+          <div className="cursor-pointer px-5 py-1 mt-3 w-24 m-auto rounded-xl bg-green-500">
             {/* <button onClick={() => handleSubmit(onSubmit())}>Enviar</button> */}
             <button type="submit">Enviar</button>
           </div>
