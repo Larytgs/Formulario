@@ -113,14 +113,32 @@ function Formulario() {
             )}
 
             {/* profissão */}
-            <div>
-              <label>Profição</label>
-              <select {...register("profession", { validate: (value) => })}>
-                <option value="Selecione sua profissão"></option>
-                <option value="Desenvolvedor Front-end"></option>
-                <option value="Desenvolvedor Back-end"></option>
-                <option value="Desenvolvidor Fullstak"></option>
-                <option value="Design"></option>
+            <div className="text-left">
+              <label>Profissão</label>
+              <select
+                {...register("profession", {
+                  validate: (value) => {
+                    return value != "0";
+                  },
+                })}
+                className={`ml-3 p-2 border-2 rounded-sm ${
+                  errors?.profession
+                    ? "border-red-500 focus:border-red-500 focus:outline-none"
+                    : "border-gray-500"
+                }`}
+              >
+                <option value="0">Selecione sua profissão</option>
+                <option value="Desenvolvedor Front-end">
+                  Desenvolvedor Front-end
+                </option>
+                <option value="Desenvolvedor Back-end">
+                  Desenvolvedor Back-end
+                </option>
+                <option value="Desenvolvidor Fullstak">
+                  Desenvolvidor Fullstak
+                </option>
+                <option value="Design">Design</option>
+                <option value="others">Outro</option>
               </select>
             </div>
 
