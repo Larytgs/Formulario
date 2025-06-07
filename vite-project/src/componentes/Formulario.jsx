@@ -37,7 +37,7 @@ function Formulario() {
           </p>
         </div>
 
-        <form className="border-2 border-gray-800 bg-orange-50 lg:mt-7 rounded-xl p-4 mr-5">
+        <form className="border-2 border-gray-800 bg-orange-50 lg:mt-4 rounded-xl p-4 mr-5">
           <div className="flex flex-col gap-4">
             {/* nome */}
             <input
@@ -148,7 +148,7 @@ function Formulario() {
             )} */}
 
             {/* profissão */}
-            <div className="text-left flex items-center">
+            <div className="text-left sm:flex items-center">
               <label>Profissão:</label>
               <select
                 {...register("profession", {
@@ -176,11 +176,11 @@ function Formulario() {
                 <option value="others">Outro</option>
               </select>
 
-              {errors?.profession?.type === "validate" && (
-                <p className="text-red-500 flex ml-2 mt-4 text-[0.7em] text-left">
-                  Proffição é Obrigatório.
+              {/* {errors?.profession?.type === "validate" && (
+                <p className="text-red-500 flex  ml-2 sm:-mt-1 md:-mt-0 text-[0.7em] text-left">
+                  Profissão é Obrigatório.
                 </p>
-              )}
+              )} */}
             </div>
 
             {/* msg */}
