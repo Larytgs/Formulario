@@ -101,12 +101,12 @@ function Formulario() {
               placeholder="*Senha :"
               {...register("password", { required: true, minLength: 7 })}
             />
-            {errors?.tel?.type === "minLength" && (
+            {errors?.password?.type === "minLength" && (
               <p className="text-red-500 -mt-4 -mb-3 text-[0.7em] text-left">
                 A senha deve contem no minimo 7 caracteres.
               </p>
             )}
-            {errors?.tel?.type === "required" && (
+            {errors?.password?.type === "required" && (
               <p className="text-red-500 -mt-4 -mb-3 text-[0.7em] text-left">
                 Senha é Obrigatório.
               </p>
@@ -167,23 +167,35 @@ function Formulario() {
               </p>
             )}
 
-            <div>
+            <div className="text-left mb-4">
               <div className="text-gray-500 text-sm">
                 <input
                   type="checkbox"
                   name="privacy-policy"
                   {...register("privacyTerms", { required: true })}
                 />
-                <label>Concordo com os termos de privacidade.</label>
-                {errors?.privacyTerms?.type === "required" && (
-                  <p className="text-red-500 -mt-4 -mb-3 text-[0.7em] text-left"></p>
-                )}
+                <label
+                  className={`ml-2 ${
+                    errors?.privacyTerms?.type === "required"
+                      ? "text-red-500"
+                      : ""
+                  }`}
+                >
+                  {errors?.privacyTerms?.type === "required"
+                    ? "Você precisa concordar com os termos."
+                    : "Concordo com os termos de privacidade."}
+                </label>
               </div>
+              {/* {errors?.privacyTerms?.type === "required" && (
+                <p className="text-red-500 -mt-4 -mb-3 text-[0.7em] text-left">
+                  Voce precisa concordar com os termos de privacidade.
+                </p>
+              )} */}
             </div>
           </div>
 
           <div>
-            <p className="my-4">* campos obrigatórios</p>
+            <p className="mb-5 text-left">* campos obrigatórios</p>
           </div>
 
           <div className="cursor-pointer px-5 py-1 mt-3 rounded-xl bg-green-500">
