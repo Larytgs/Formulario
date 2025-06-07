@@ -1,6 +1,8 @@
 import { useForm } from "react-hook-form";
 import validator from "validator";
 
+import Form, { P } from "../styles/style";
+
 function Formulario() {
   const {
     register, //register é uma biblioteca, registra/valida os inputs
@@ -20,10 +22,7 @@ function Formulario() {
 
   return (
     <section>
-      <div
-        className="block md:flex lg:gap-8 md:justify-evenly"
-        onSubmit={handleSubmit(onSubmit)}
-      >
+      <div className="block md:flex lg:gap-8 md:justify-evenly">
         <div className="block text-center  md:mr-7 lg:mt-8">
           <h1 className="text-[1.2em] mb-5 font-bold md:text-left md:mt-32 md:ml-2 ">
             FICOU COM DÚVIDA? <br />
@@ -35,7 +34,7 @@ function Formulario() {
           </p>
         </div>
 
-        <form className="border-2 border-gray-800 bg-[#bcc7f0] lg:mt-4 rounded-xl p-4 m-0 lg:mr-5">
+        <Form onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col gap-4">
             {/* nome */}
             <input
@@ -48,11 +47,7 @@ function Formulario() {
               placeholder="*Nome completo:"
               {...register("name", { required: true })}
             />
-            {errors?.name?.type === "required" && (
-              <p className="text-red-500 -mt-4 -mb-3 text-[0.7em] text-left">
-                Nome é Obrigatório.
-              </p>
-            )}
+            {errors?.name?.type === "required" && <P>Nome é Obrigatório.</P>}
 
             {/* email */}
             <input
@@ -68,16 +63,8 @@ function Formulario() {
                 validate: (value) => validator.isEmail(value),
               })}
             />
-            {errors?.email?.type === "required" && (
-              <p className="text-red-500 -mt-4 -mb-3 text-[0.7em] text-left">
-                Email é Obrigatório.
-              </p>
-            )}
-            {errors?.email?.type === "validate" && (
-              <p className="text-red-500 -mt-4 -mb-3 text-[0.7em] text-left">
-                Email é inválido.
-              </p>
-            )}
+            {errors?.email?.type === "required" && <P>Email é Obrigatório.</P>}
+            {errors?.email?.type === "validate" && <P>Email é inválido.</P>}
 
             {/* telefone */}
             <input
@@ -90,11 +77,7 @@ function Formulario() {
               placeholder="*Telefone:"
               {...register("tel", { required: true })}
             />
-            {errors?.tel?.type === "required" && (
-              <p className="text-red-500 -mt-4 -mb-3 text-[0.7em] text-left">
-                Telefone é Obrigatório.
-              </p>
-            )}
+            {errors?.tel?.type === "required" && <P>Telefone é Obrigatório.</P>}
 
             {/* senha */}
             {/* <input
@@ -109,14 +92,14 @@ function Formulario() {
               {...register("password", { required: true, minLength: 7 })}
             />
             {errors?.password?.type === "minLength" && (
-              <p className="text-red-500 -mt-4 -mb-3 text-[0.7em] text-left">
+              <P>
                 A senha deve contem no minimo 7 caracteres.
-              </p>
+              </P>
             )}
             {errors?.password?.type === "required" && (
-              <p className="text-red-500 -mt-4 -mb-3 text-[0.7em] text-left">
+              <P>
                 Senha é Obrigatório.
-              </p>
+              </P>
             )} */}
 
             {/* Validação de senha */}
@@ -138,11 +121,11 @@ function Formulario() {
             />
 
             {errors?.passwordConfirmation && (
-              <p className="text-red-500 -mt-4 -mb-3 text-[0.7em] text-left">
+              <P>
                 {errors.passwordConfirmation.type === "required"
                   ? "Senha é obrigatória."
                   : errors.passwordConfirmation.message}
-              </p>
+              </P>
             )} */}
 
             {/* profissão */}
@@ -194,11 +177,7 @@ function Formulario() {
               placeholder="*Mensagem:"
               {...register("msg", { required: true })}
             ></textarea>
-            {errors?.msg?.type === "required" && (
-              <p className="text-red-500 -mt-4 -mb-3 text-[0.7em] text-left">
-                Mensagem é Obrigatório.
-              </p>
-            )}
+            {errors?.msg?.type === "required" && <P>Mensagem é Obrigatório.</P>}
 
             <div className="text-left mb-4">
               <div className="text-black text-sm">
@@ -220,9 +199,9 @@ function Formulario() {
                 </label>
               </div>
               {/* {errors?.privacyTerms?.type === "required" && (
-                <p className="text-red-500 -mt-4 -mb-3 text-[0.7em] text-left">
+                <P>
                   Voce precisa concordar com os termos de privacidade.
-                </p>
+                </P>
               )} */}
             </div>
           </div>
@@ -235,7 +214,7 @@ function Formulario() {
             {/* <button onClick={() => handleSubmit(onSubmit())}>Enviar</button> */}
             <button type="submit">Enviar</button>
           </div>
-        </form>
+        </Form>
       </div>
     </section>
   );
