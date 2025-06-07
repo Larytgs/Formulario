@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import validator from "validator";
 
-import Form, { P } from "../styles/style";
+import Form, { P, Button } from "../styles/style";
 
 function Formulario() {
   const {
@@ -210,10 +210,10 @@ function Formulario() {
             <p className="mb-5 text-left">* campos obrigatórios</p>
           </div>
 
-          <div className="cursor-pointer px-5 py-1 mt-3 w-24 m-auto rounded-xl bg-blue-600 font-bold">
+          <Button>
             {/* <button onClick={() => handleSubmit(onSubmit())}>Enviar</button> */}
             <button type="submit">Enviar</button>
-          </div>
+          </Button>
         </Form>
       </div>
     </section>

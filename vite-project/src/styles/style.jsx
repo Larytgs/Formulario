@@ -8,6 +8,13 @@ function Foorm(props) {
     </form>
   );
 }
+
+// function Input(props){
+//     return(
+//         <input type="text" /> {props.children}
+//     )
+// }
+
 function P(props) {
   return (
     <p className="text-red-500 -mt-4 -mb-3 text-[0.7em] text-left">
@@ -16,5 +23,16 @@ function P(props) {
   );
 }
 
+function Button(props) {
+  return (
+    <p
+      p
+      className="cursor-pointer px-5 py-1 mt-3 w-24 m-auto rounded-xl bg-blue-600 font-bold"
+    >
+      {props.children}
+    </p>
+  );
+}
+
 export default Foorm;
-export { P };
+export { P, Button };
