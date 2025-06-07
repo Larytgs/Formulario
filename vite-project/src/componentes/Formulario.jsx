@@ -23,7 +23,7 @@ function Formulario() {
   return (
     <section>
       <div
-        className="block  md:flex lg:gap-8 md:justify-evenly"
+        className="block md:flex lg:gap-8 md:justify-evenly"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="block text-center -ml-7 lg:mt-8">
