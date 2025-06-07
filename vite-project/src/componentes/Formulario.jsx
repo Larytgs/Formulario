@@ -1,7 +1,14 @@
 import { useForm } from "react-hook-form";
 
 function Formulario() {
-  const { register, handleSubmit } = useForm(); //register é uma biblioteca, registra/valida os inputs
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  //register é uma biblioteca, registra/valida os inputs
+  //handleSubmit é uma função para ser executada quando um formulário é enviado
+  //formState: {errors}
 
   const onSubmit = (data) => {
     console.log(data); // Exibe os dados do formulário no console
@@ -24,22 +31,27 @@ function Formulario() {
         <form className="border-2 border-gray-800 bg-orange-50 rounded-xl p-5 mr-5">
           <div className="flex flex-col gap-2">
             <input
-              className="p-2  border-2 border-gray-500 rounded-sm"
+              className="p-2 border-2 border-gray-500 rounded-sm"
               type="text"
               placeholder="Nome completo: *"
-              {...register("name")}
+              {...register("name", { required: true })}
             />
+            {errors?.name?.type === "required" && (
+              <p className="text-red-500 border-2 border-red-500">
+                Nome é Obrigatório
+              </p>
+            )}
             <input
               className="p-2 border-2 border-gray-500 rounded-sm"
               type="email"
               placeholder="Email: *"
-              {...register("email")}
+              {...register("email", { required: true })}
             />
             <input
               className="p-2 border-2 border-gray-500 rounded-sm"
               type="tel"
               placeholder="Telefone: *"
-              {...register("tel")}
+              {...register("tel", { required: true })}
             />
             <textarea
               className="p-2 border-2 border-gray-500 rounded-sm"
@@ -47,15 +59,15 @@ function Formulario() {
               cols="40"
               rows="5"
               placeholder="Mensagem: *"
-              {...register("msg")}
+              {...register("msg", { required: true })}
             ></textarea>
 
             <div>
-              <div className="text-red-500 text-sm">
+              <div className="text-gray-500 text-sm">
                 <input
                   type="checkbox"
                   name="privacy-policy"
-                  {...register("privacyTerms")}
+                  {...register("privacyTerms", { required: true })}
                 />
                 <label>Concordo com os termos de privacidade.</label>
               </div>
@@ -67,7 +79,7 @@ function Formulario() {
           </div>
 
           <div className="cursor-pointer px-5 py-1 mt-3 rounded-xl bg-green-500">
-            <button onClick={handleSubmit(onSubmit)}>Enviar</button>
+            <button onClick={() => handleSubmit(onSubmit())}>Enviar</button>
           </div>
         </form>
       </div>
