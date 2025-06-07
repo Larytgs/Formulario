@@ -23,15 +23,15 @@ function Formulario() {
   return (
     <section>
       <div
-        className="block md:flex lg:gap-8 md:justify-evenly"
+        className="block md:flex lg:gap-8 md:justify-evenly border-2 border-red-100"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="block text-center -ml-7 lg:mt-8">
+        <div className="block text-center lg:-ml-7 lg:mt-8">
           <h1 className="text-[1em] mb-5 font-bold md:text-[1.2em] md:text-left md:mt-32 md:ml-8 ">
             FICOU COM DÚVIDA? <br />
             NOS MANDE UMA MENSAGEM!
           </h1>
-          <p className="m-5 md:w-[300px]">
+          <p className="my-5 md:w-[300px]">
             Caso tenha ficado com qualquer dúvida basta nos mandar uma mensagem
             e entraremos em contato assim que possível.
           </p>
