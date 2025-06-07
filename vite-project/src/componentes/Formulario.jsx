@@ -37,7 +37,7 @@ function Formulario() {
           </p>
         </div>
 
-        <form className="border-2 border-gray-800 bg-orange-50 lg:mt-4 rounded-xl p-4 mr-5">
+        <form className="border-2 border-gray-800 bg-[#bcc7f0] lg:mt-4 rounded-xl p-4 mr-5">
           <div className="flex flex-col gap-4">
             {/* nome */}
             <input
@@ -203,7 +203,7 @@ function Formulario() {
             )}
 
             <div className="text-left mb-4">
-              <div className="text-gray-500 text-sm">
+              <div className="text-black text-sm">
                 <input
                   type="checkbox"
                   name="privacy-policy"
@@ -233,7 +233,7 @@ function Formulario() {
             <p className="mb-5 text-left">* campos obrigatórios</p>
           </div>
 
-          <div className="cursor-pointer px-5 py-1 mt-3 w-24 m-auto rounded-xl bg-green-500">
+          <div className="cursor-pointer px-5 py-1 mt-3 w-24 m-auto rounded-xl bg-blue-600 font-bold">
             {/* <button onClick={() => handleSubmit(onSubmit())}>Enviar</button> */}
             <button type="submit">Enviar</button>
           </div>
