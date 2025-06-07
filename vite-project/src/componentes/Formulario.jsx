@@ -12,7 +12,8 @@ function Formulario() {
   });
 
   const onSubmit = (data) => {
-    alert(JSON.stringify(data)); // Exibe os dados do formulário no console
+    alert("Formulário enviado com sucesso!");
+    // alert(JSON.stringify(data)); // Exibe os dados do formulário no console
   };
 
   // const watchPassword = watch("password");
