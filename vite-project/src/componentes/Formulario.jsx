@@ -113,12 +113,12 @@ function Formulario() {
             )}
 
             {/* profissão */}
-            <div className="text-left">
-              <label>Profissão</label>
+            <div className="text-left flex items-center">
+              <label>Profissão:</label>
               <select
                 {...register("profession", {
                   validate: (value) => {
-                    return value != "0";
+                    return value !== "0";
                   },
                 })}
                 className={`ml-3 p-2 border-2 rounded-sm ${
@@ -140,6 +140,12 @@ function Formulario() {
                 <option value="Design">Design</option>
                 <option value="others">Outro</option>
               </select>
+
+              {errors?.profession?.type === "validate" && (
+                <p className="text-red-500 flex ml-2 mt-4 text-[0.7em] text-left">
+                  Proffição é Obrigatório.
+                </p>
+              )}
             </div>
 
             {/* msg */}
