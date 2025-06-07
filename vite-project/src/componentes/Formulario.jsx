@@ -27,7 +27,7 @@ function Formulario() {
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="block text-center -ml-7 lg:mt-8">
-          <h1 className="text-[1em] mb-5 font-bold md:text-[1.2em] md:text-left md:mt-32 md:ml-6 ">
+          <h1 className="text-[1em] mb-5 font-bold md:text-[1.2em] md:text-left md:mt-32 md:ml-8 ">
             FICOU COM DÚVIDA? <br />
             NOS MANDE UMA MENSAGEM!
           </h1>
