@@ -11,7 +11,7 @@ function Formulario() {
     mode: "onSubmit", //a validação aconteça apenas quando o usuário clicar em Enviar
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = () => {
     alert("Formulário enviado com sucesso!");
     // alert(JSON.stringify(data)); // Exibe os dados do formulário no console
   };
