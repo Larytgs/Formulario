@@ -1,4 +1,12 @@
+import { useForm } from "react-hook-form";
+
 function Formulario() {
+  const { register, handleSubmit } = useForm(); //register é uma biblioteca, registra/valida os inputs
+
+  const onSubmit = (data) => {
+    console.log(data); // Exibe os dados do formulário no console
+  };
+
   return (
     <section>
       <div className="block sm:flex lg:mt-20 lg:gap-8 justify-evenly">
@@ -19,19 +27,19 @@ function Formulario() {
               className="p-2  border-2 border-gray-500 rounded-sm"
               type="text"
               placeholder="Nome completo: *"
-              required // para campo obrigatorio
+              {...register("name")}
             />
             <input
               className="p-2 border-2 border-gray-500 rounded-sm"
               type="email"
               placeholder="Email: *"
-              required
+              {...register("email")}
             />
             <input
               className="p-2 border-2 border-gray-500 rounded-sm"
               type="tel"
               placeholder="Telefone: *"
-              required
+              {...register("tel")}
             />
             <textarea
               className="p-2 border-2 border-gray-500 rounded-sm"
@@ -39,17 +47,28 @@ function Formulario() {
               cols="50"
               rows="5"
               placeholder="Mensagem: *"
+              {...register("msg")}
             ></textarea>
+
+            <div>
+              <div className="text-red-500 text-sm">
+                <input
+                  type="checkbox"
+                  name="privacy-policy"
+                  {...register("privacyTerms")}
+                />
+                <label>Concordo com os termos de privacidade.</label>
+              </div>
+            </div>
           </div>
 
           <div>
             <p className="my-4">* campos obrigatórios</p>
           </div>
-          <input
-            className="cursor-pointer px-5 py-1 mt-3 rounded-xl bg-green-500"
-            type="button"
-            value="Enviar"
-          />
+
+          <div className="cursor-pointer px-5 py-1 mt-3 rounded-xl bg-green-500">
+            <button onClick={handleSubmit(onSubmit)}>Enviar</button>
+          </div>
         </form>
       </div>
     </section>
