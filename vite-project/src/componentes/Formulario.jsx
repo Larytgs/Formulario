@@ -3,16 +3,13 @@ import validator from "validator";
 
 function Formulario() {
   const {
-    register,
-    handleSubmit,
+    register, //register é uma biblioteca, registra/valida os inputs
+    handleSubmit, //handleSubmit é uma função para ser executada quando um formulário é enviado
     formState: { errors },
     //watch, //funcionalidade que permite monitorar as mudanças em um ou mais campos de um formulário, exemplo validação de senha
   } = useForm({
     mode: "onSubmit", //a validação aconteça apenas quando o usuário clicar em Enviar
   });
-  //register é uma biblioteca, registra/valida os inputs
-  //handleSubmit é uma função para ser executada quando um formulário é enviado
-  //formState: {errors}
 
   const onSubmit = (data) => {
     alert(JSON.stringify(data)); // Exibe os dados do formulário no console
