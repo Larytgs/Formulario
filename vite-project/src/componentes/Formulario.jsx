@@ -23,7 +23,7 @@ function Formulario() {
   return (
     <section>
       <div
-        className="block md:flex lg:gap-8 justify-evenly"
+        className="block  md:flex lg:gap-8 md:justify-evenly"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="block text-center -ml-7 lg:mt-8">
@@ -37,7 +37,7 @@ function Formulario() {
           </p>
         </div>
 
-        <form className="border-2 border-gray-800 bg-[#bcc7f0] lg:mt-4 rounded-xl p-4 mr-5">
+        <form className="border-2 border-gray-800 bg-[#bcc7f0] lg:mt-4 rounded-xl p-4 m-0 sm:mr-5">
           <div className="flex flex-col gap-4">
             {/* nome */}
             <input
