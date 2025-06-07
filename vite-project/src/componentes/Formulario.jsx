@@ -1,10 +1,12 @@
 import { useForm } from "react-hook-form";
+import validator from "validator";
 
 function Formulario() {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    watch, //funcionalidade que permite monitorar as mudanças em um ou mais campos de um formulário, exemplo validação de senha
   } = useForm({
     mode: "onSubmit", //a validação aconteça apenas quando o usuário clicar em Enviar
   });
@@ -13,12 +15,10 @@ function Formulario() {
   //formState: {errors}
 
   const onSubmit = (data) => {
-    console.log(data); // Exibe os dados do formulário no console
+    alert(JSON.stringify(data)); // Exibe os dados do formulário no console
   };
 
-  // const onError = (errors) => {
-  //   console.log("Form errors:", errors);
-  // };
+  const watchPassword = watch("password");
 
   return (
     <section>
@@ -65,11 +65,19 @@ function Formulario() {
               }`}
               type="email"
               placeholder="*Email:"
-              {...register("email", { required: true })}
+              {...register("email", {
+                required: true,
+                validate: (value) => validator.isEmail(value),
+              })}
             />
             {errors?.email?.type === "required" && (
               <p className="text-red-500 -mt-4 -mb-3 text-[0.7em] text-left">
                 Email é Obrigatório.
+              </p>
+            )}
+            {errors?.email?.type === "validate" && (
+              <p className="text-red-500 -mt-4 -mb-3 text-[0.7em] text-left">
+                Email é inválido.
               </p>
             )}
 
@@ -93,11 +101,12 @@ function Formulario() {
             {/* senha */}
             <input
               className={`p-2 border-2 rounded-sm ${
-                errors?.tel
+                errors?.password
                   ? "border-red-500 focus:border-red-500 focus:outline-none"
                   : "border-gray-500"
               }`}
               type="password"
+              autoComplete="new-password"
               placeholder="*Senha :"
               {...register("password", { required: true, minLength: 7 })}
             />
@@ -111,6 +120,50 @@ function Formulario() {
                 Senha é Obrigatório.
               </p>
             )}
+
+            {/* Validação de senha */}
+            <input
+              className={`p-2 border-2 rounded-sm ${
+                errors?.passwordConfirmation
+                  ? "border-red-500 focus:border-red-500 focus:outline-none"
+                  : "border-gray-500"
+              }`}
+              type="password"
+              autoComplete="new-password"
+              placeholder="*Digite sua senha novamente:"
+              {...register("passwordConfirmation", {
+                required: true,
+                minLength: 7,
+                validate: (value) =>
+                  value === watchPassword || "As senhas não conferem.",
+              })}
+            />
+            {errors?.passwordConfirmation && (
+              <p className="text-red-500 -mt-4 -mb-3 text-[0.7em] text-left">
+                {errors.passwordConfirmation.type === "required"
+                  ? "Senha é obrigatória."
+                  : errors.passwordConfirmation.type === "minLength"
+                  ? "A senha deve ter no mínimo 7 caracteres."
+                  : "As senhas não conferem."}
+              </p>
+            )}
+
+            {/* {errors?.passwordConfirmation?.type === "required" && (
+              <p className="text-red-500 -mt-4 -mb-3 text-[0.7em] text-left">
+                Senha é Obrigatório.
+              </p>
+            )}
+            {errors?.passwordConfirmation && (
+              <p className="text-red-500 -mt-4 -mb-3 text-[0.7em] text-left">
+                {errors.passwordConfirmation.message ||
+                  "As senhas não conferem."}
+              </p>
+            )}
+            {errors?.passwordConfirmation?.type === "minLength" && (
+              <p className="text-red-500 -mt-4 -mb-3 text-[0.7em] text-left">
+                A senha deve contem no minimo 7 caracteres.
+              </p>
+            )} */}
 
             {/* profissão */}
             <div className="text-left flex items-center">
