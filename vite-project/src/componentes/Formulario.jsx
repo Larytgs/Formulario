@@ -137,7 +137,7 @@ function Formulario() {
                     return value !== "0";
                   },
                 })}
-                className={`ml-2 p-1 border-2 rounded-sm ${
+                className={`sm:ml-2 p-1 border-2 rounded-sm ${
                   errors?.profession
                     ? "border-red-500 focus:border-red-500 focus:outline-none"
                     : "border-gray-500"
